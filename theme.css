@@ -1,43 +1,48 @@
-/* Warm sage, olive glass and a continuous background that darkens with the story. */
+/* Warm sage fades into burgundy; translucent panels reveal the blurred backdrop. */
 :root{
   --bg:#f0f2df;
   --bg-shade:#d6e0bd;
   --fg:#1d3020;
   --accent:#587a35;
-  --glass-top:rgba(255,255,230,.48);
-  --glass-bottom:rgba(255,255,240,.18);
+  --glass-top:rgba(255,255,255,.14);
+  --glass-bottom:rgba(255,255,255,.035);
+  --ambient:#9aac67;
+  --glass-shadow:#344722;
   --muted:color-mix(in srgb,var(--fg) 92%,var(--bg));
   --line:color-mix(in srgb,var(--fg) 18%,transparent);
-  --glass-line:color-mix(in srgb,var(--fg) 12%,#fff8);
+  --glass-line:rgba(255,255,255,.32);
 }
 body{
   background:
-    radial-gradient(ellipse at 12% 15%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 52%),
-    radial-gradient(ellipse at 88% 72%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 48%),
+    radial-gradient(ellipse at 8% 18%,color-mix(in srgb,var(--ambient) 45%,transparent),transparent 44%),
+    radial-gradient(ellipse at 92% 76%,color-mix(in srgb,var(--ambient) 30%,transparent),transparent 46%),
     linear-gradient(145deg,var(--bg) 2%,var(--bg-shade) 100%);
   background-attachment:fixed;
 }
 .nav{
-  background:linear-gradient(115deg,color-mix(in srgb,var(--bg) 78%,transparent),color-mix(in srgb,var(--bg-shade) 68%,transparent));
+  background:linear-gradient(115deg,var(--glass-top),var(--glass-bottom));
   border-bottom-color:var(--glass-line);
   backdrop-filter:blur(24px) saturate(135%);
   -webkit-backdrop-filter:blur(24px) saturate(135%);
   box-shadow:0 6px 30px #18381a08,inset 0 1px 0 #ffffff80;
 }
 .card,.chip,.stats,.appcard,.phone,details,.pill,.member,.contact form{
-  background:linear-gradient(135deg,var(--glass-top),var(--glass-bottom));
+  background:linear-gradient(135deg,var(--glass-top),var(--glass-bottom) 62%,#ffffff0f);
+  background-color:transparent;
   border:1px solid var(--glass-line);
-  backdrop-filter:blur(22px) saturate(125%);
-  -webkit-backdrop-filter:blur(22px) saturate(125%);
-  box-shadow:0 18px 48px #17361a12,inset 0 1px 0 #ffffff6b,inset 1px 0 0 #ffffff24;
+  border-top-color:#ffffff80;
+  border-bottom-color:#ffffff24;
+  backdrop-filter:blur(28px) saturate(145%);
+  -webkit-backdrop-filter:blur(28px) saturate(145%);
+  box-shadow:0 20px 48px color-mix(in srgb,var(--glass-shadow) 17%,transparent),inset 0 1px 0 #ffffff50,inset 1px 0 0 #ffffff20,inset 0 -1px 0 #00000012;
 }
 .card,.chip,details{transition:box-shadow .3s,border-color .3s}
-.card:hover,.chip:hover{border-color:color-mix(in srgb,var(--accent) 38%,#fff8);box-shadow:0 22px 54px #17361a1a,inset 0 1px 0 #ffffff80}
+.card:hover,.chip:hover{border-color:#ffffff80;box-shadow:0 24px 54px color-mix(in srgb,var(--glass-shadow) 22%,transparent),inset 0 1px 0 #ffffff80}
 .phone,.appcard{color:var(--fg)}
 .row{border-top-color:var(--line)}
 .appcard small{color:var(--muted)}
 .bar{background:color-mix(in srgb,var(--fg) 9%,transparent)}
-.bar span{background:linear-gradient(90deg,#6d8c43,#a2b96f);box-shadow:0 0 14px #8fa95d40}
+.bar span{background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 65%,white));box-shadow:0 0 14px color-mix(in srgb,var(--accent) 25%,transparent)}
 .btn{background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 88%,#fff),color-mix(in srgb,var(--accent) 86%,#17351b));border:1px solid #ffffff30;box-shadow:0 8px 24px #30551d24,inset 0 1px 0 #ffffff30}
 .btn.ghost{background:linear-gradient(145deg,#ffffff24,#ffffff08);border:1px solid var(--line);box-shadow:inset 0 1px 0 #ffffff70}
 .device{
@@ -59,37 +64,45 @@ body{
 .member{border-radius:22px;padding:28px 16px}
 .member .av:not(.wrong){background:linear-gradient(135deg,#91a76d,#587044)!important;box-shadow:inset 0 2px 0 #ffffff50,0 8px 24px #1d3d1524}
 .who .av:not(.wrong){background:linear-gradient(135deg,#8fa66b,#627d48)!important}
-.price.forever{background:linear-gradient(145deg,#253927d9,#102316ed);color:#e2eacb;border-color:#8a9f6270;box-shadow:0 20px 50px #0a1c1638,inset 0 1px 0 #b8c59633}
-.price.forever p{color:#c2d0a9}
-.price.forever li:before{color:#b4c57d}
-.price.forever .btn{background:linear-gradient(145deg,#617d40,#354e2a);box-shadow:0 0 28px #82994f33}
-.thumb{border:1px solid #d9e3bd70;background:linear-gradient(135deg,#d0dab1,#819764)!important;box-shadow:inset 0 1px 0 #ffffff80}
-.post:nth-child(2) .thumb{background:linear-gradient(135deg,#8b9e73,#475e42)!important}
-.post:nth-child(3) .thumb{background:linear-gradient(135deg,#425a3d,#102719)!important}
+.price.forever{background:linear-gradient(145deg,#2d0b152e,#16020a57);color:var(--fg);border-color:#ffffff50;box-shadow:0 20px 50px #13010838,inset 0 1px 0 #ffffff45}
+.price.forever p{color:var(--muted)}
+.price.forever li:before{color:var(--accent)}
+.price.forever .btn{background:linear-gradient(145deg,#934f4c,#57252e);box-shadow:0 0 28px #8e334033}
+.thumb{border:1px solid #ffffff38;background:linear-gradient(135deg,color-mix(in srgb,var(--ambient) 55%,#fff),var(--ambient))!important;box-shadow:inset 0 1px 0 #ffffff80}
+.post:nth-child(2) .thumb{background:linear-gradient(135deg,var(--ambient),color-mix(in srgb,var(--ambient) 65%,#000))!important}
+.post:nth-child(3) .thumb{background:linear-gradient(135deg,color-mix(in srgb,var(--ambient) 70%,#000),#1a070e)!important}
 .contact form{padding:30px;border-radius:24px}
-.contact input,.contact textarea{background:color-mix(in srgb,var(--bg) 38%,transparent);border-color:var(--line)}
+.contact input,.contact textarea{background:#ffffff05;border-color:#ffffff38;box-shadow:inset 0 1px 8px #00000012}
 .contact textarea::placeholder{color:var(--muted);opacity:.8}
 .contact .formmsg{color:#d4b999}
-.term{color:#d1dfbd;text-shadow:0 0 18px #9fbc6e0d}
-.term .l.warn{color:#d0cb95}
-.term .l.red{color:#d6a792}
-.cursor{background:#c4d6ac}
-.letusin{color:#4a6335}
+.term{color:#e2c9c3;text-shadow:0 0 18px #b76c6c0d}
+.term .l.warn{color:#d9bf95}
+.term .l.red{color:#e7a49f}
+.cursor{background:#dcb8b2}
+.letusin{color:#793341}
 .eye{background:radial-gradient(ellipse at 50% 50%,#e9edcf 30%,#aebc86 70%,#455537)}
-.eye i{background:radial-gradient(circle,#000 0 30%,#6b7f3a 34%,#263518 62%,#000 72%)}
-.eyetext{color:#e5ecd3}
-.eyetext p.red{color:#becb86}
-.endtext{color:#b5c5a1}
-.inside{color:#c1cf8d;text-shadow:0 0 40px #718c4840}
-#whisper{color:#ccd49d}
+.eye i{background:radial-gradient(circle,#000 0 30%,#7d343c 34%,#351119 62%,#000 72%)}
+.eyetext{color:#f0e1d8}
+.eyetext p.red{color:#e9aca6}
+.endtext{color:#cdb0aa}
+.inside{color:#e7aba8;text-shadow:0 0 40px #912c4240}
+#whisper{color:#e8b4ad}
 #toast{background:linear-gradient(135deg,#f2f5dfea,#d7e2bee8);color:#273c24;border:1px solid #ffffffe0;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 14px 40px #1a3a1929}
 #sound{background:linear-gradient(135deg,var(--glass-top),var(--glass-bottom));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--glass-line);box-shadow:inset 0 1px 0 #ffffff50}
-footer{background:#020704;color:#afc298}
-footer .btn{background:linear-gradient(135deg,#304328,#172a1c);color:#dbe6c7;border-color:#7b976c40}
-body.night .btn{background:linear-gradient(145deg,#5b7740,#334d2c);color:#f7fbe9}
-body.night .btn.ghost{background:#b1c67a0d;color:var(--fg);border-color:#bad38d50}
-body.night .card,body.night details,body.night .member,body.night .contact form{background:linear-gradient(135deg,#b8d38b12,#07170d33);border-color:#bfd49a45;box-shadow:0 20px 50px #0003,inset 0 1px 0 #dce9be24}
-body.night .chip,body.night .stats,body.night .appcard,body.night .phone,body.night .pill,body.night #sound{background:linear-gradient(135deg,#b8d38b12,#07170d33);border-color:#bfd49a45}
+footer{background:#090306;color:#c9aaa6}
+footer .btn{background:linear-gradient(135deg,#48212b,#210b13);color:#ead4ce;border-color:#b77a8240}
+body.night .btn{background:linear-gradient(145deg,#994e50,#58252f);color:#fff3ec}
+body.night .btn.ghost{background:#ffffff08;color:var(--fg);border-color:#ffffff50}
+body.night .card,body.night details,body.night .member,body.night .contact form,
+body.night .chip,body.night .stats,body.night .appcard,body.night .phone,body.night .pill,body.night #sound{
+  background:linear-gradient(135deg,var(--glass-top),var(--glass-bottom) 62%,#ffffff0f);
+  background-color:transparent;
+  border-color:#ffffff38;
+  border-top-color:#ffffff73;
+  box-shadow:0 20px 50px #0000002e,inset 0 1px 0 #ffffff40,inset 0 -1px 0 #0000001a;
+}
+body.night .member .av:not(.wrong),body.night .who .av:not(.wrong){background:linear-gradient(135deg,#b07970,#72424a)!important}
+body.night #toast{background:linear-gradient(135deg,#30151ee8,#210d16ed);color:#f7e5dd;border-color:#ffffff50}
 .address-glitch{animation:address-glitch .6s steps(1) both}
 .address-fade{animation:address-fade .45s ease-out both}
 @keyframes address-glitch{0%,100%{filter:none;text-shadow:none}14%{filter:blur(.8px);text-shadow:3px 0 #99b743,-3px 0 #d0a75b;translate:2px 0}30%{filter:none;translate:-2px 1px}45%{text-shadow:-3px 0 #99b743,2px 0 #d0a75b;translate:0 -1px}65%{filter:blur(.5px);translate:1px 0}82%{filter:none;translate:0 0}}
