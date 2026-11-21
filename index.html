@@ -281,7 +281,7 @@ footer .btn{margin-top:22px;background:#2a0a07;box-shadow:none;color:#c9bfb3}
   .term{font-size:12px;line-height:1.65;overflow-wrap:anywhere}
 }
 </style>
-<link rel="stylesheet" href="theme.css?v=990f0f-1">
+<link rel="stylesheet" href="theme.css?v=clear-glass-3">
 </head>
 <body>
 
@@ -854,8 +854,8 @@ function frame(){
   D = +s.dataset.d + (+n.dataset.d - +s.dataset.d)*t;
   root.style.setProperty('--bg-shade', mix(bg, mix('#a5bb7b','#990f0f',clamp(D/.72)), .25));
   root.style.setProperty('--d', D.toFixed(3));
-  root.style.setProperty('--glass-top', `rgba(255,255,255,${.14-D*.025})`);
-  root.style.setProperty('--glass-bottom', `rgba(255,255,255,${.035+D*.01})`);
+  root.style.setProperty('--glass-top', `rgba(255,255,255,${.025-D*.01})`);
+  root.style.setProperty('--glass-bottom', 'rgba(255,255,255,.006)');
   const rgb=hex(bg).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});
   const luminance=rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;
   const night=luminance<.19;
@@ -867,7 +867,7 @@ function frame(){
   maybeChangeAddress();
 
   const floor = inside ? .12 : 0;
-  noiseEl.style.opacity = Math.max(floor*.5, clamp((D-.42)*.18, 0, .1));
+  noiseEl.style.opacity = Math.max(floor*.5, clamp((D-.42)*.3, 0, .18));
   vig.style.opacity = Math.max(floor, clamp((D-.3)*.42, 0, .3));
   scan.style.opacity = clamp((D-.7)*.6, 0, .18);
 
@@ -917,7 +917,7 @@ setInterval(()=>{
 const nctx = noiseEl.getContext('2d'), img = nctx.createImageData(320,180);
 setInterval(()=>{
   if(+noiseEl.style.opacity < .01) return;
-  for(let k=0;k<img.data.length;k+=4){const v=Math.random()*255;img.data[k]=img.data[k+1]=img.data[k+2]=v;img.data[k+3]=255;}
+  for(let k=0;k<img.data.length;k+=4){const v=Math.random()*190;img.data[k]=img.data[k+1]=img.data[k+2]=v;img.data[k+3]=255;}
   nctx.putImageData(img,0,0);
 }, 50);
 
