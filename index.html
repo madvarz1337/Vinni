@@ -710,19 +710,31 @@ for(let i=0;i<46;i++){
   eyes.push({el:e, thr:Math.random()*.6, blink:0});
 }
 let mx = innerWidth/2, my = innerHeight/2;
-addEventListener('pointermove', e=>{mx=e.clientX;my=e.clientY;poke()});
+let gazeFrame = null;
+addEventListener('pointermove', e=>{
+  mx=e.clientX; my=e.clientY; poke();
+  if(gazeFrame!==null) return;
+  gazeFrame=requestAnimationFrame(()=>{
+    gazeFrame=null;
+    const prog=sticky('#eyes');
+    if(prog>0 && prog<1) updateEyeGaze();
+  });
+});
+function updateEyeGaze(){
+  eyes.forEach(o=>{
+    const r=o.el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+    const a=Math.atan2(my-cy,mx-cx), d=Math.min(1,Math.hypot(mx-cx,my-cy)/300);
+    o.el.style.setProperty('--x',(Math.cos(a)*r.width*.22*d)+'px');
+    o.el.style.setProperty('--y',(Math.sin(a)*r.height*.18*d)+'px');
+  });
+}
 function updateEyes(prog){
   eyes.forEach(o=>{
     let open = clamp((prog-o.thr)*4);
     if(o.blink>0){open*=.05;o.blink--;} else if(Math.random()<.002) o.blink=6;
     o.el.style.setProperty('--o', open.toFixed(3));
-    if(open>0){
-      const r=o.el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-      const a=Math.atan2(my-cy,mx-cx), d=Math.min(1,Math.hypot(mx-cx,my-cy)/300);
-      o.el.style.setProperty('--x',(Math.cos(a)*r.width*.22*d)+'px');
-      o.el.style.setProperty('--y',(Math.sin(a)*r.height*.18*d)+'px');
-    }
   });
+  updateEyeGaze();
 }
 
 /* ================= CCTV ================= */
