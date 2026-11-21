@@ -971,7 +971,7 @@ function jumpscare(){
   setTimeout(()=>{
     sc.classList.remove('on'); document.body.classList.remove('shake');
     $('#inside').style.opacity=1;
-    $('#h1').innerHTML = addressText('Ваш дом <em>наконец-то вас слышит.</em><br><span class="serif" style="font-size:.55em;color:var(--accent)">Мы всё слышали.</span>');
+    $('#h1').innerHTML = addressText('Ваш дом <em>наконец-то слушает.</em><br><span class="serif" style="font-size:.55em;color:var(--accent)">Мы всё слышали.</span>');
     $('#lead').textContent = addressText('Винни объединяет все комнаты, устройства и мгновения — чтобы вам больше никогда не пришлось выходить из дома.');
     const d=$('#door'); d.textContent='Открыта'; d.className='bad';
     $('#people').textContent='2';
