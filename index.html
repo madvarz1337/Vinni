@@ -716,8 +716,8 @@ addEventListener('pointermove', e=>{
   if(gazeFrame!==null) return;
   gazeFrame=requestAnimationFrame(()=>{
     gazeFrame=null;
-    const prog=sticky('#eyes');
-    if(prog>0 && prog<1) updateEyeGaze();
+    const bounds=stage.getBoundingClientRect();
+    if(bounds.bottom>0 && bounds.top<innerHeight) updateEyeGaze();
   });
 });
 function updateEyeGaze(){
