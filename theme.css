@@ -1,4 +1,4 @@
-/* Warm sage fades into burgundy; translucent panels reveal the blurred backdrop. */
+/* Warm sage fades into #990F0F; translucent panels reveal the blurred backdrop. */
 :root{
   --bg:#f0f2df;
   --bg-shade:#d6e0bd;
@@ -67,10 +67,10 @@ body{
 .price.forever{background:linear-gradient(145deg,#2d0b152e,#16020a57);color:var(--fg);border-color:#ffffff50;box-shadow:0 20px 50px #13010838,inset 0 1px 0 #ffffff45}
 .price.forever p{color:var(--muted)}
 .price.forever li:before{color:var(--accent)}
-.price.forever .btn{background:linear-gradient(145deg,#934f4c,#57252e);box-shadow:0 0 28px #8e334033}
+.price.forever .btn{background:linear-gradient(145deg,#a42626,#630909);box-shadow:0 0 28px #8e334033}
 .thumb{border:1px solid #ffffff38;background:linear-gradient(135deg,color-mix(in srgb,var(--ambient) 55%,#fff),var(--ambient))!important;box-shadow:inset 0 1px 0 #ffffff80}
 .post:nth-child(2) .thumb{background:linear-gradient(135deg,var(--ambient),color-mix(in srgb,var(--ambient) 65%,#000))!important}
-.post:nth-child(3) .thumb{background:linear-gradient(135deg,color-mix(in srgb,var(--ambient) 70%,#000),#1a070e)!important}
+.post:nth-child(3) .thumb{background:linear-gradient(135deg,color-mix(in srgb,var(--ambient) 70%,#000),#3b0505)!important}
 .contact form{padding:30px;border-radius:24px}
 .contact input,.contact textarea{background:#ffffff05;border-color:#ffffff38;box-shadow:inset 0 1px 8px #00000012}
 .contact textarea::placeholder{color:var(--muted);opacity:.8}
@@ -79,7 +79,7 @@ body{
 .term .l.warn{color:#d9bf95}
 .term .l.red{color:#e7a49f}
 .cursor{background:#dcb8b2}
-.letusin{color:#793341}
+.letusin{color:#540606}
 .eye{background:radial-gradient(ellipse at 50% 50%,#e9edcf 30%,#aebc86 70%,#455537)}
 .eye i{background:radial-gradient(circle,#000 0 30%,#7d343c 34%,#351119 62%,#000 72%)}
 .eyetext{color:#f0e1d8}
@@ -89,9 +89,9 @@ body{
 #whisper{color:#e8b4ad}
 #toast{background:linear-gradient(135deg,#f2f5dfea,#d7e2bee8);color:#273c24;border:1px solid #ffffffe0;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 14px 40px #1a3a1929}
 #sound{background:linear-gradient(135deg,var(--glass-top),var(--glass-bottom));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--glass-line);box-shadow:inset 0 1px 0 #ffffff50}
-footer{background:#090306;color:#c9aaa6}
-footer .btn{background:linear-gradient(135deg,#48212b,#210b13);color:#ead4ce;border-color:#b77a8240}
-body.night .btn{background:linear-gradient(145deg,#994e50,#58252f);color:#fff3ec}
+footer{background:#990F0F;color:#c9aaa6}
+footer .btn{background:linear-gradient(135deg,#7b0c0c,#4e0606);color:#ead4ce;border-color:#b77a8240}
+body.night .btn{background:linear-gradient(145deg,#b02a2a,#660a0a);color:#fff3ec}
 body.night .btn.ghost{background:#ffffff08;color:var(--fg);border-color:#ffffff50}
 body.night .card,body.night details,body.night .member,body.night .contact form,
 body.night .chip,body.night .stats,body.night .appcard,body.night .phone,body.night .pill,body.night #sound{
